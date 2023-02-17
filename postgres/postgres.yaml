@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.6-bullseye
+    # restart: always
+    restart: unless-stopped
+    volumes:
+      - /home/juandd5/docker-volumes/postgres14-6:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: my-pass
+      PGDATA: /var/lib/postgresql/data/pgdata
