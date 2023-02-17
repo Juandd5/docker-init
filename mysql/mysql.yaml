@@ -8,5 +8,7 @@ services:
     restart: unless-stopped
     volumes:
      - /home/juandd5/docker-volumes/mysql-8-0-32:/var/lib/mysql
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: my-pass
