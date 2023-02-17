@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:6.15
+    restart: unless-stopped
+    # volumes:
+    #  - pgadmin-data:/var/lib/pgadmin
+    # volumes:
+      # - /home/juandd5/docker-volumes/pgadmin:
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: my-pgadmin
+    ports:
+      - "5050:80"
