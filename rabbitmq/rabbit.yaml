@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.12.2-management
+    container_name: my_rabbitmq
+    restart: unless-stopped
+    # tty: true
+    # stdin_open: true
+    ports:
+      # AMQP Protocol
+      - "5672:5672"
+      # HTTP Dashboard
+      - "15672:15672"
+      # MQTT Protocol
+      # - "1883:1883"
+      # MQTT over websockets
+      # - "15675:15675"
+    volumes:
+      - /home/juandd5/docker-volumes/rabbitmq/data:/var/lib/rabbitmq
+      # - ./enable_plugins:/etc/rabbitmq/enabled_plugins:ro
+    environment:
+      RABBITMQ_DEFAULT_USER: juandd5
+      RABBITMQ_DEFAULT_PASS: my-rabbitmq

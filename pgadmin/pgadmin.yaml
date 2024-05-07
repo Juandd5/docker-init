@@ -2,14 +2,16 @@ version: '3.8'
 services:
   pgadmin:
     container_name: pgadmin4_container
-    image: dpage/pgadmin4:6.15
+    image: dpage/pgadmin4:8.4
     restart: unless-stopped
+    # network_mode: host #para conexión por la vpn
     # volumes:
     #  - pgadmin-data:/var/lib/pgadmin
-    # volumes:
-      # - /home/juandd5/docker-volumes/pgadmin:
+    volumes:
+      - /home/juandd5/docker-volumes/pgadmin:/var/lib/pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_EMAIL: juandiazr95@gmail.com
       PGADMIN_DEFAULT_PASSWORD: my-pgadmin
+    user: "pgadmin"
     ports:
       - "5050:80"

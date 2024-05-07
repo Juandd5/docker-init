@@ -7,8 +7,13 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     volumes:
-     - /home/juandd5/docker-volumes/mysql-8-0-32:/var/lib/mysql
+      - /home/juandd5/docker-volumes/mysql-8-0-32:/var/lib/mysql
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: my-pass
+      MYSQL_ROOT_PASSWORD: my-root-pass
+      MYSQL_USER: juandd5
+      MYSQL_PASSWORD: my-user-pass
+
+# mysql -u juandd5 -p -h 192.168.80.17 -P 3306
+#GRANT ALL PRIVILEGES ON `db_name`.* TO `juandd5`@`%`
